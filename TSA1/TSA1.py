@@ -1,58 +1,53 @@
-# Program 1: Display the number of vowels, consonants, spaces, and other characters in an input string
-def count_characters(input_string):
-    vowels = "aeiouAEIOU"
-    consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
-    num_vowels = num_consonants = num_spaces = num_others = 0
+print("=================================")
+print("Technical Activity 1")
+print("=================================")
 
-    for char in input_string:
-        if char in vowels:
-            num_vowels += 1
-        elif char in consonants:
-            num_consonants += 1
-        elif char.isspace():
-            num_spaces += 1
-        else:
-            num_others += 1
+input_string = input("Enter a string: ")
 
-    print(f"Vowels: {num_vowels}")
-    print(f"Consonants: {num_consonants}")
-    print(f"Spaces: {num_spaces}")
-    print(f"Other characters: {num_others}")
+vowels = 0
+consonants = 0
+spaces = 0
+others = 0
 
-# Program 2: Count the sum of the digits from a given input string
-def sum_of_digits(input_string):
-    total_sum = 0
+vowel_list = "aeiouAEIOU"
 
-    for char in input_string:
-        if char.isdigit():
-            total_sum += int(char)
+for char in input_string:
+    if char in vowel_list:
+        vowels += 1
+    elif ('a' <= char <= 'z') or ('A' <= char <= 'Z'):
+        consonants += 1
+    elif char == ' ':
+        spaces += 1
+    else:
+        others += 1
+        
+print("\nCharacter Counts:")
+print(f"Vowels: {vowels}")
+print(f"Consonants: {consonants}")
+print(f"Spaces: {spaces}")
+print(f"Other characters: {others}")
 
-    print(f"Sum of digits: {total_sum}")
+total = 0
+for char in input_string:
+    if '0' <= char <= '9':
+        total += int(char)
 
-# Program 3a: Display the pattern using nested for statement
-def pattern_a():
-    for i in range(1, 6):
-        for j in range(5, i, -1):
-            print(" ", end="")
-        for k in range(1, i + 1):
-            print(k, end="")
+print(f"\nSum of digits in the string: {total}")
+
+print("\nPattern a:")
+for i in range(1, 6): 
+    spaces_count = 5 - i
+    for j in range(spaces_count):
+        print(" ", end="")
+    for k in range(1, i + 1):
+        print(k, end="")
+    print()
+
+print("\nPattern b:")
+i = 1
+while i <= 7: 
+    if i != 2:
+        for j in range(i):
+            print(i, end="")
         print()
-
-# Program 3b: Display the pattern using nested while statement
-def pattern_b():
-    i = 1
-    while i <= 7:
-        if i % 2 != 0:
-            j = 1
-            while j <= i:
-                print(i, end="")
-                j += 1
-            print()
-        i += 1
-
-# Example usage
-input_string = "Hello World! 123"
-count_characters(input_string)
-sum_of_digits(input_string)
-pattern_a()
-pattern_b()
+    i += 1
