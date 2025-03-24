@@ -9,7 +9,7 @@ def main():
         print("[F] - Summation")
         print("[Q] - Quit")
         
-        choice = input("Enter your choice: ").upper()
+        choice = input("Enter Choice: ").upper()
         
         if choice == 'Q':
             break
